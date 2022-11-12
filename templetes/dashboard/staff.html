@@ -1,0 +1,39 @@
+{% extends "partials/nav.html" %}
+
+{% block title %} Staff {% endblock %}
+
+{% block content %}
+{% include 'partials/topside.html' %}
+
+
+<div class="row my-4">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <table class="table bg-white">
+            <thead class="bg-info text-white">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">ID</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for worker in workers %}
+                <tr>
+                    <th scope="row"><a class="btn btn-info btn-sm"
+                            href="{% url 'staff-detail' worker.id %}">View</a></th>
+                            {% comment %}  {% endcomment %}
+                            <td>{{ worker.id }}</td>
+                            <td>{{ worker.username }}</td>
+                            <td>{{ worker.profile.phone }}</td>
+                    <td>{{ worker.email }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

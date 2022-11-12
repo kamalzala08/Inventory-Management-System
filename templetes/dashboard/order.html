@@ -1,0 +1,53 @@
+{% extends "partials/base.html" %}
+
+{% block title %} Order {% endblock %}
+
+{% block content %}
+ 
+
+    <!--Table-->
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+                <table class="table bg-white">
+                    <thead class="bg-info">
+                        <tr class="text-white">
+                            <th scope="col">#</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Order By</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Date</th>
+                            {% comment %} <th scope="col">Activity</th> {% endcomment %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        
+                        <tr>
+                            <th scope="row">{{ order.id }}</th>
+                            <td>{{ order.product}}</td>
+                            <td>{{order.orderby }}</td>
+                            <td>{{ order.order_quantity}}</td>
+                            <td>{{order.date }}</td>
+                            <td>
+                                {% comment %} <a class="btn btn-info btn-sm" href="">Approve</a>
+                                <a class="btn ml-4 btn-danger btn-sm" href="">Reject</a> {% endcomment %}
+                            </td>
+                        </tr>
+                        
+                         {% endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!--End Table-->
+ 
+{% endblock %}

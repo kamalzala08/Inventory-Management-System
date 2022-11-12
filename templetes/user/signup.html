@@ -1,0 +1,30 @@
+{% extends "partials/nav.html" %}
+
+{% block title %} SignUp {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row my-4">
+    <div class="col-md-6 offset-md-3">
+        <div class="border p-3 bg-white">
+            <h4 style="text-align: center;">Registration Page</h4>
+            <hr>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="row">
+                <div class="col-4">
+                    <input class="btn btn-success" type="submit" style="width:100%;" value="Register">
+                </div>
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <input class="btn btn-dark" type="reset" style="width:100%;" value="Reset">
+                </div>    
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
